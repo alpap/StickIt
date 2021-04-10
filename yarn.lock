@@ -455,11 +455,6 @@ html-pdf@^2.2.0:
   optionalDependencies:
     phantomjs-prebuilt "^2.1.4"
 
-html2pdf@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/html2pdf/-/html2pdf-0.0.11.tgz#1359156fbdeac0ec6fc8a781b05e8747ded19769"
-  integrity sha1-E1kVb73qwOxvyKeBsF6HR97Rl2k=
-
 http-signature@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-1.2.0.tgz#9aecd925114772f3d95b65a60abb8f7c18fbace1"
