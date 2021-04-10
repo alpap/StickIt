@@ -1,9 +1,9 @@
 import xlsx2json from 'xlsx2json'
-
+import { existsSync } from 'fs'
 import QRCode from 'qrcode'
 
-async function GetDataFromExcel() {
-  const json_data = await xlsx2json('./123.xlsx', {
+async function GetDataFromExcel(path) {
+  const json_data = await xlsx2json(path, {
     keysRow: 1,
   })
   const map = new Map()
@@ -56,8 +56,14 @@ async function GenerateSides(values, side_c, to_number) {
 }
 
 async function main() {
-  const data = await GetDataFromExcel()
-  return await GenerateSides(data, true)
+  const file = process.argv.slice(2)[0]
+  if (!existsSync(file)) console.log(`File ${file} could not be found`)
+  else {
+    console.log('Loading file ' + file)
+    const data = await GetDataFromExcel(file)
+    console.log('Generating QR codes')
+    return await GenerateSides(data, true)
+  }
 }
 
 main().then((m) => m)
