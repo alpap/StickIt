@@ -51,6 +51,8 @@ async function GenerateSides(values, side_c, to_number) {
     if (!mark) continue
     const populated_side_data = PopulateSides(mark, side_letters, to_number)
     await CreateQrCodes(populated_side_data)
+    console.table(populated_side_data)
+    process.exit(1)
     map_of_assemblies.set(mark, populated_side_data)
   }
   return map_of_assemblies
