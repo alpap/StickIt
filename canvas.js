@@ -1,4 +1,35 @@
-export function MapToHTML(arr) {}
+export function MapToHTML(arr) {
+  const pages = ArrToPages(arr)
+  const svgs = pages.map((page) => PageDataToSvg(page))
+  return EmbedSvgsToHTML(svgs)
+}
+
+export function MapToHTMLs(arr) {
+  const sides = {
+    a: [],
+    b: [],
+    c: [],
+  }
+  let filtered = arr.filter((val) => val.side_letter == 'A')
+  let pages = ArrToPages(filtered)
+  let svgs = pages.map((page) => PageDataToSvg(page))
+  let htmls = svgs.map((svg) => EmbedSvgsToHTML(svg))
+
+  sides.a = [...filtered]
+
+  filtered = arr.filter((val) => val.side_letter == 'B')
+  pages = ArrToPages(filtered)
+  svgs = pages.map((page) => PageDataToSvg(page))
+  htmls = svgs.map((svg) => EmbedSvgsToHTML(svg)[0])
+  sides.b = [...filtered]
+
+  filtered = arr.filter((val) => val.side_letter == 'C')
+  pages = ArrToPages(filtered)
+  svgs = pages.map((page) => PageDataToSvg(page))
+  htmls = svgs.map((svg) => EmbedSvgsToHTML(svg)[0])
+  sides.c = [...filtered]
+  return sides
+}
 
 function EmbedSvgsToHTML(svgs) {
   let htmlStart = `
@@ -15,7 +46,7 @@ function EmbedSvgsToHTML(svgs) {
   `
 
   const htmlEnd = `</div></body></html>`
-  for (svg of svgs) {
+  for (const svg of svgs) {
     htmlStart += svg
   }
   return htmlStart + htmlEnd
@@ -23,7 +54,7 @@ function EmbedSvgsToHTML(svgs) {
 
 function ArrToPages(arr) {
   const svgArr = new Array()
-  while (arr.length >= 0) {
+  while (arr.length > 0) {
     svgArr.push(arr.splice(0, 14))
   }
   return svgArr
@@ -36,8 +67,7 @@ function ArrToPages(arr) {
 //         mark: mark,
 //       }
 
-function PageToSvg(page) {
-  const svgArr = new Array()
+function PageDataToSvg(page) {
   const svgCode = `      <svg
         xmlns="http://www.w3.org/2000/svg"
         width="754.016"
@@ -559,4 +589,6 @@ function PageToSvg(page) {
           />
         </g>
       </svg>`
+
+  return svgCode
 }

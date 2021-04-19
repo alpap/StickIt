@@ -1,6 +1,7 @@
 import xlsx2json from 'xlsx2json'
 import { existsSync } from 'fs'
 import QRCode from 'qrcode'
+import { MapToHTML, MapToHTMLs } from './canvas.js'
 
 async function GetDataFromExcel(path) {
   const json_data = await xlsx2json(path, {
@@ -27,6 +28,7 @@ function PopulateSides(mark, side_letters, to) {
         qr_text: `${mark},${side}`,
         qr: '',
         side: side,
+        side_letter: sideLetter,
         mark: mark,
       })
     }
@@ -51,9 +53,8 @@ async function GenerateSides(values, side_c, to_number) {
     if (!mark) continue
     const populated_side_data = PopulateSides(mark, side_letters, to_number)
     await CreateQrCodes(populated_side_data)
-    console.table(populated_side_data)
-    process.exit(1)
     map_of_assemblies.set(mark, populated_side_data)
+    return map_of_assemblies //! remove this
   }
   return map_of_assemblies
 }
@@ -66,7 +67,14 @@ async function main() {
   console.log('Loading file ' + file)
   const data = await GetDataFromExcel(file)
   console.log('Generating QR codes')
-  return await GenerateSides(data, true)
+  const mapOfData = await GenerateSides(data, true)
+  mapOfData.forEach((value, key) => {
+    console.log('Generating PDFs for mark: ', key)
+    // const html = MapToHTML(value)
+    // console.log(html)
+    const htmls = MapToHTMLs(value)
+  })
+  console.log('Done')
   // }
 }
 
