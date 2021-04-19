@@ -3,6 +3,19 @@ import { existsSync } from 'fs'
 import QRCode from 'qrcode'
 import { MapToHTML } from './canvas.js'
 
+function PrintLogo() {
+  console.log(`
+
+███████╗████████╗██╗ ██████╗██╗  ██╗██╗████████╗
+██╔════╝╚══██╔══╝██║██╔════╝██║ ██╔╝██║╚══██╔══╝
+███████╗   ██║   ██║██║     █████╔╝ ██║   ██║
+╚════██║   ██║   ██║██║     ██╔═██╗ ██║   ██║
+███████║   ██║   ██║╚██████╗██║  ██╗██║   ██║
+╚══════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝   ╚═╝
+
+`)
+}
+
 async function GetDataFromExcel(path) {
   const json_data = await xlsx2json(path, {
     keysRow: 1,
@@ -62,8 +75,10 @@ async function GenerateSides(values, side_c, to_number) {
 async function main() {
   // const file = process.argv.slice(2)[0]
   // const outdir = process.argv.slice(2)[1]
+  PrintLogo()
   // if (!existsSync(file)) console.log(`File ${file} could not be found`)
   // else {
+  console.log('verion: 1.0.0')
   let file = './123.xlsx'
   console.log('Loading file ' + file)
   const data = await GetDataFromExcel(file)
