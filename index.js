@@ -76,6 +76,7 @@ async function main() {
   // const file = process.argv.slice(2)[0]
   // const outdir = process.argv.slice(2)[1]
   PrintLogo()
+  const output_folder = CreadteFolderStructure(outdir)
   // if (!existsSync(file)) console.log(`File ${file} could not be found`)
   // else {
   console.log('verion: 1.0.0')
@@ -89,8 +90,10 @@ async function main() {
     // const html = MapToHTML(value)
     const a_side = value.filter((val) => val.side_letter === 'A')
     const a_htmls = MapToHTML(a_side)
+
     const b_side = value.filter((val) => val.side_letter === 'B')
     const b_htmls = MapToHTML(b_side)
+
     const c_side = value.filter((val) => val.side_letter === 'C')
     const c_htmls = MapToHTML(c_side)
   })
@@ -99,4 +102,3 @@ async function main() {
 }
 
 main().then((m) => m)
-// data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAAKgSURBVO3BQQ7kRgwEwSxC//9yeo88NSBIGq9pRsQ/WGMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFGKdYoxRrl4qEk/JLKHUm4Q6VLwi+pPFGsUYo1SrFGuXiZypuScEcSvqTypiS8qVijFGuUYo1y8bEk3KFyRxI6lS4JnUqXhCeScIfKl4o1SrFGKdYoF8Mk4SQJkxVrlGKNUqxRLoZR6ZLQqXRJmKRYoxRrlGKNcvExlV9KQqfSJaFTeULlb1KsUYo1SrFGuXhZEv5NKl0SOpUuCZ3KSRL+ZsUapVijFGuU+Af/YUnoVP7PijVKsUYp1igXDyWhU+mS8CaVTuWOJHQqJ0l4k8qXijVKsUYp1igXD6l0SThR6ZLQqZwk4Q6VkyR0Kp1Kl4RO5…iZykkSOpUuCXeonCShU+mScIdKl4QTlV8q1ijFGqVYo8Q/+FAS7lA5ScKJykkS3qRykoQ7VJ4o1ijFGqVYo1z8mMpJEk5UnlDpktCpvEnll4o1SrFGKdYoFx9TuUPljiR0Kl0SOpUnktCp3JGETuVNxRqlWKMUa5SLh5LwSyqdSpeEkyR0Kl9KwkkSOpUnijVKsUYp1igXL1N5UxJOknCi8iaVN6m8qVijFGuUYo1y8bEk3KHyhMpJEjqVO5LQqXRJOFH5UrFGKdYoxRrlYrgknCThDpUuCZ1Kl4RfKtYoxRqlWKNcDKdykoROpUtCl4S/WbFGKdYoxRrl4mMqX1K5IwknSbhD5Y4kdCpvKtYoxRqlWKNcvCwJv5SETuVEpUtCp3KShJMknKh8qVijFGuUYo0S/2CNUaxRijVKsUYp1ijFGqVYoxRrlGKNUqxRijVKsUYp1ijFGqVYoxRrlH8AzmP37woduiEAAAAASUVORK5CYII=
