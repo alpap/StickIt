@@ -1,5 +1,5 @@
 const create = require('html-pdf').create
-const { existsSync, mkdirSync } = require('fs')
+const { existsSync, mkdirSync, writeFile } = require('fs')
 const { join } = require('path')
 
 function CurrentDatetime() {
@@ -24,10 +24,16 @@ module.exports = {
   SaveToPdf: function SaveToPdf(filename, folder_name, mark, html) {
     const folder_mark_name = join(folder_name, mark)
     if (!existsSync(folder_mark_name)) mkdirSync(folder_mark_name)
-    let options = { format: 'a4' }
-    create(html, options).toFile(join(folder_mark_name, filename), function (err, res) {
+    let options = { format: 'A4', renderDelay: '2000' }
+    create(html, options).toFile(join(folder_mark_name, filename + '.pdf'), function (err, res) {
       if (err) return console.log(err)
-      console.log(res)
+    })
+  },
+  SaveToHTML: function SaveToHTML(filename, folder_name, mark, html) {
+    const folder_mark_name = join(folder_name, mark)
+    if (!existsSync(folder_mark_name)) mkdirSync(folder_mark_name)
+    writeFile(join(folder_mark_name, filename + '.html'), html, (err, res) => {
+      if (err) return console.log(err)
     })
   },
 }

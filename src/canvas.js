@@ -1,4 +1,4 @@
-export function MapToHTML(arr) {
+module.exports = function MapToHTML(arr) {
   const pages = ArrToPages(arr)
   const svgs = pages.map((page) => PageDataToSvg(page))
   return EmbedSvgsToHTML(svgs)

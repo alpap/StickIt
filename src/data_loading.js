@@ -1,4 +1,5 @@
 const QRCode = require('qrcode')
+const xlsx2json = require('xlsx2json')
 
 function PopulateSides(mark, side_letters, to) {
   const list_of_objs = new Array()
