@@ -4,33 +4,6 @@ export function MapToHTML(arr) {
   return EmbedSvgsToHTML(svgs)
 }
 
-export function MapToHTMLs(arr) {
-  const sides = {
-    a: [],
-    b: [],
-    c: [],
-  }
-  let filtered = arr.filter((val) => val.side_letter == 'A')
-  let pages = ArrToPages(filtered)
-  let svgs = pages.map((page) => PageDataToSvg(page))
-  let htmls = svgs.map((svg) => EmbedSvgsToHTML(svg))
-
-  sides.a = [...filtered]
-
-  filtered = arr.filter((val) => val.side_letter == 'B')
-  pages = ArrToPages(filtered)
-  svgs = pages.map((page) => PageDataToSvg(page))
-  htmls = svgs.map((svg) => EmbedSvgsToHTML(svg)[0])
-  sides.b = [...filtered]
-
-  filtered = arr.filter((val) => val.side_letter == 'C')
-  pages = ArrToPages(filtered)
-  svgs = pages.map((page) => PageDataToSvg(page))
-  htmls = svgs.map((svg) => EmbedSvgsToHTML(svg)[0])
-  sides.c = [...filtered]
-  return sides
-}
-
 function EmbedSvgsToHTML(svgs) {
   let htmlStart = `
   <!DOCTYPE html>
@@ -59,13 +32,6 @@ function ArrToPages(arr) {
   }
   return svgArr
 }
-
-// {
-//         qr_text: `${mark},${side}`,
-//         qr: '',
-//         side: side,
-//         mark: mark,
-//       }
 
 function PageDataToSvg(page) {
   const svgCode = `      <svg

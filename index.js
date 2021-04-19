@@ -1,7 +1,7 @@
 import xlsx2json from 'xlsx2json'
 import { existsSync } from 'fs'
 import QRCode from 'qrcode'
-import { MapToHTML, MapToHTMLs } from './canvas.js'
+import { MapToHTML } from './canvas.js'
 
 async function GetDataFromExcel(path) {
   const json_data = await xlsx2json(path, {
@@ -61,6 +61,7 @@ async function GenerateSides(values, side_c, to_number) {
 
 async function main() {
   // const file = process.argv.slice(2)[0]
+  // const outdir = process.argv.slice(2)[1]
   // if (!existsSync(file)) console.log(`File ${file} could not be found`)
   // else {
   let file = './123.xlsx'
@@ -71,8 +72,12 @@ async function main() {
   mapOfData.forEach((value, key) => {
     console.log('Generating PDFs for mark: ', key)
     // const html = MapToHTML(value)
-    // console.log(html)
-    const htmls = MapToHTMLs(value)
+    const a_side = value.filter((val) => val.side_letter === 'A')
+    const a_htmls = MapToHTML(a_side)
+    const b_side = value.filter((val) => val.side_letter === 'B')
+    const b_htmls = MapToHTML(b_side)
+    const c_side = value.filter((val) => val.side_letter === 'C')
+    const c_htmls = MapToHTML(c_side)
   })
   console.log('Done')
   // }
