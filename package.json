@@ -5,16 +5,14 @@
     "start": "node ./src/index.js",
     "package": "mkdir dist && cd dist && pkg ../src/index.js --targets node14-win-x64 --output stickit.exe",
     "package-linux": "mkdir dist && cd dist && pkg ./src/index.js --targets node14-linux-x64 --output stickit.exe",
-    "test":"./dist/stickit.exe 123.xlsx out"
+    "test": "./dist/stickit.exe 123.xlsx out"
   },
   "dependencies": {
-    "html-pdf": "^2.2.0",
     "pkg": "^4.5.1",
     "qrcode": "^1.4.4",
     "xlsx2json": "^1.0.0"
   },
   "devDependencies": {
-    "@types/html-pdf": "^2.2.0",
     "@types/qrcode": "^1.4.0"
   }
 }
