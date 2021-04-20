@@ -33,3 +33,21 @@ The application only creates the final folder of the path, in this case `out`, t
 ## Prerequisites
 
 Make sure that the mark column in the xlscx file is named `Assembly Mark`
+
+## Printing
+
+After the files are ctreated you can open them using Chrome or Firefox and print them using the "ctrl+P" shortcut.
+Click on more options:
+- Choose A4 for paper size
+- Scalse should be at 100
+- Pages per sheet 1
+- margins None
+
+in Firefox
+
+- disable  `Print headers and footers`
+- disable  `Print backgrounds`
+
+in Chrome
+
+- disable `Background graphics`
