@@ -17,8 +17,8 @@ function PrintLogo() {
 }
 
 async function main() {
-  const file = process.argv.slice(1)[0]
-  const outdir = process.argv.slice(1)[1]
+  const file = process.argv.slice(2)[0]
+  const outdir = process.argv.slice(2)[1]
   PrintLogo()
   const output_folder = CreateFolderStructure(outdir)
   if (!existsSync(file)) console.log(`File ${file} could not be found`)
