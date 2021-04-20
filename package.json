@@ -1,11 +1,13 @@
 {
   "name": "stickit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node ./src/index.js",
+    "package": "pkg ./src/index.js --out-path dist"
   },
   "dependencies": {
     "html-pdf": "^2.2.0",
+    "pkg": "^4.5.1",
     "qrcode": "^1.4.4",
     "xlsx2json": "^1.0.0"
   },

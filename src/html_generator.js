@@ -65,7 +65,7 @@ function EmbedSvgsToHTML(svgs) {
     </style>
   </head>
   <body style="margin: 0; padding: 0; text-align: center">
-    <div id="dpo8-final-preview" style="text-align: center; overflow: auto; background: white none repeat scroll 0% 0%">`
+    <div id="dpo8-final-preview" style="display:flex;flex-direction:column ;text-align: center; overflow: auto; background: white none repeat scroll 0% 0%">`
 
   const htmlEnd = `</div></body></html>`
   for (const svg of svgs) {
@@ -84,6 +84,10 @@ function ArrToPages(arr) {
 
 // width="754.016"
 // height="1066.394"
+// width="210mm"
+// height="296mm"
+// width="2480px"
+// height="3508px"
 
 function PageDataToSvg(page) {
   const svgCode = `<svg
@@ -121,9 +125,9 @@ function PageDataToSvg(page) {
               x="0"
               y="37.528"
               style="font-feature-settings: 'liga' 0, 'case' 0, 'cpsp' 0"
-              font-size="43"
+              font-size="${page[0].mark.length>7?37:43}"
               font-family="DPO8 Arial,DPO8Fallback,Arial"
-              font-weight="400"
+              font-weight="${page[0].mark.length>7?450:400}"
             >
                 ${page[0].mark}
             </tspan>

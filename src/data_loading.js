@@ -52,7 +52,7 @@ module.exports = {
       const populated_side_data = PopulateSides(mark, side_letters, to_number)
       await CreateQrCodes(populated_side_data)
       map_of_assemblies.set(mark, populated_side_data)
-      return map_of_assemblies //! remove this
+      // return map_of_assemblies //! remove this
     }
     return map_of_assemblies
   },
