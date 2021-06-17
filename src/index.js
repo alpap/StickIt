@@ -42,6 +42,10 @@ async function main() {
     const c_side = value.filter((val) => val.side_letter === 'C')
     const c_html = MapToHTML(c_side)
     SaveToHTML('C', output_folder, key, c_html)
+    
+    const c_side = value.filter((val) => val.side_letter === 'D')
+    const c_html = MapToHTML(c_side)
+    SaveToHTML('C', output_folder, key, c_html)
   })
   console.log('Done')
   }
