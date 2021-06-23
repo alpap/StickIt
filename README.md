@@ -1,4 +1,3 @@
-
 ```
 ███████╗████████╗██╗ ██████╗██╗  ██╗  ██╗████████╗
 ██╔════╝╚══██╔══╝██║██╔════╝██║ ██╔╝  ██║╚══██╔══╝
@@ -7,16 +6,19 @@
 ███████║   ██║   ██║╚██████╗██║  ██╗  ██║   ██║
 ╚══════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═╝   ╚═╝
 ```
+
 ## Command line
+
 ```bash
 stickit.exe <xlsx_file_path> <output_folder_path>
 ```
-## Parameters
-| parameters        | explanation           |
-|:------------- |:-------------|
-| *xlsx file path*     | the file to process |
-| *output folder path*     | the output directory (optional)      |
 
+## Parameters
+
+| parameters           | explanation                     |
+| :------------------- | :------------------------------ |
+| _xlsx file path_     | the file to process             |
+| _output folder path_ | the output directory (optional) |
 
 ## CLI examples
 
@@ -25,6 +27,7 @@ stickit.exe ./doc.xlsx
 stickit.exe doc.xlsx out
 stickit.exe ./folders/doc.xlsx ./out
 ```
+
 The fisrt example will create a new folder in the current directory named folowing this pattern `dd_mm_yyyy_hh_m`
 
 ## Special cases
@@ -45,6 +48,7 @@ Make sure that the mark column in the xlscx file is named `Assembly Mark`
 
 After the files are ctreated you can open them using Chrome or Firefox and print them using the "ctrl+P" shortcut.
 Click on more options:
+
 - Choose A4 for paper size
 - Scalse should be at 100
 - Pages per sheet 1
@@ -52,12 +56,19 @@ Click on more options:
 
 in Firefox
 
-- disable  `Print headers and footers`
-- disable  `Print backgrounds`
+- disable `Print headers and footers`
+- disable `Print backgrounds`
 
 in Chrome
 
 - disable `Background graphics`
 
+## Building the application
 
+after you make your changes run
 
+```bash
+yarn package
+# or
+npm run package
+```
