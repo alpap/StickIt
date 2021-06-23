@@ -43,13 +43,13 @@ async function main() {
     const c_html = MapToHTML(c_side)
     SaveToHTML('C', output_folder, key, c_html)
 
-    const c_side = value.filter((val) => val.side_letter === 'D')
-    const c_html = MapToHTML(c_side)
-    SaveToHTML('D', output_folder, key, c_html)
+    const d_side = value.filter((val) => val.side_letter === 'D')
+    const d_html = MapToHTML(d_side)
+    SaveToHTML('D', output_folder, key, d_html)
 
-    const c_side = value.filter((val) => val.side_letter === 'X')
-    const c_html = MapToHTML(c_side)
-    SaveToHTML('X', output_folder, key, c_html)
+    const x_side = value.filter((val) => val.side_letter === 'X')
+    const x_html = MapToHTML(x_side)
+    SaveToHTML('X', output_folder, key, x_html)
   })
   console.log('Done')
   }

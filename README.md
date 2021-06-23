@@ -65,8 +65,20 @@ in Chrome
 
 ## Building the application
 
+First install the packages
+
+```bash
+yarn install
+# or
+npm install
+```
+
 after you make your changes run
 
 ```bash
+yarn run package
+# or
 npm run package
 ```
+
+the output should be in the ddist folder
