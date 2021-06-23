@@ -68,7 +68,5 @@ in Chrome
 after you make your changes run
 
 ```bash
-yarn package
-# or
 npm run package
 ```
