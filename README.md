@@ -81,4 +81,4 @@ yarn run package
 npm run package
 ```
 
-the output should be in the ddist folder
+the output will be in the dist folder
